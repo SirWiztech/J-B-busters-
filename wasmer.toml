@@ -1,0 +1,18 @@
+[package]
+name = "j-b-busters"
+version = "1.0.0"
+description = "J&B Junk Busters — Removal & Cleanup Services | Rockwall, TX"
+
+[dependencies]
+"php/php" = "8.3"
+
+[fs]
+"/app" = "."
+
+[[command]]
+name = "run"
+module = "php/php:php"
+runner = "wasi"
+
+[command.annotations.wasi]
+main-args = ["-t", "/app", "-S", "localhost:8080", "/app/router.php"]

@@ -1,0 +1,12 @@
+kind: wasmer.io/App.v0
+name: j-b-busters
+package: j-b-busters
+debug: false
+enable_email: true
+redirect:
+  force_https: true
+capabilities:
+  instaboot:
+    requests:
+      - path: /
+      - path: /index.php
