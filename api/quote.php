@@ -13,7 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ── Sanitize inputs ──────────────────────────────────────────
+// Strips tags/whitespace AND strips CR/LF so user input can never be used
+// to inject extra headers (e.g. Bcc:) into the outgoing email.
 function clean(string $val): string {
+    $val = str_replace(["\r", "\n"], '', $val);
     return htmlspecialchars(strip_tags(trim($val)), ENT_QUOTES, 'UTF-8');
 }
 
@@ -32,6 +35,9 @@ if (empty($name))           $errors[] = 'Name is required.';
 if (empty($phone))          $errors[] = 'Phone number is required.';
 if (empty($zip))            $errors[] = 'Zip code is required.';
 if (empty($service))        $errors[] = 'Please select a service.';
+if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Please enter a valid email address.';
+}
 
 if (!empty($errors)) {
     http_response_code(422);
@@ -97,14 +103,18 @@ $body .= "───────────────────────�
 $body .= "Sent from jnbjunkbusters.com at " . date('F j, Y g:i A T') . "\n";
 
 $headers  = "From: JNB Website <noreply@jnbjunkbusters.com>\r\n";
-$headers .= "Reply-To: {$email}\r\n";
+if (!empty($email)) {
+    $headers .= "Reply-To: {$email}\r\n";
+}
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
 // Attach photos via multipart if any
 if (!empty($uploadedFiles)) {
     $boundary = md5(time());
     $headers  = "From: JNB Website <noreply@jnbjunkbusters.com>\r\n";
-    $headers .= "Reply-To: {$email}\r\n";
+    if (!empty($email)) {
+        $headers .= "Reply-To: {$email}\r\n";
+    }
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: multipart/mixed; boundary=\"{$boundary}\"\r\n";
 

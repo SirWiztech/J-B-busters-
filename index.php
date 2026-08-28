@@ -131,7 +131,7 @@ require_once __DIR__ . '/includes/header.php';
       <?php
       $trustItems = [
         ['icon'=>'fa-shield-alt',     'text'=>'Fully Insured'],
-        ['icon'=>'fa-family',         'text'=>'Family Owned'],
+        ['icon'=>'fa-users',          'text'=>'Family Owned'],
         ['icon'=>'fa-bolt',           'text'=>'Same-Day Service'],
         ['icon'=>'fa-hand-holding-usd','text'=>'Upfront Pricing'],
         ['icon'=>'fa-recycle',        'text'=>'Eco-Friendly Disposal'],
@@ -206,7 +206,7 @@ require_once __DIR__ . '/includes/header.php';
   <div class="process-bg-img" style="background-image:url('assets/images/another j and b worker standing in a truck.jpg')"></div>
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <span class="section-tag light"><i class="fas fa-route"></i> Simple Process</span>
+      <span class="section-tag light"><i class="fas fa-route"></i> How It Works</span>
       <h2 class="section-title light">FOUR STEPS TO A <span class="accent">CLEAN SPACE</span></h2>
       <p class="section-sub light">No hassle. No hidden fees. Just fast, honest junk removal.</p>
     </div>
@@ -251,11 +251,11 @@ require_once __DIR__ . '/includes/header.php';
       <div class="ba-item">
         <div class="ba-slider" data-ba>
           <div class="ba-after">
-            <img src="assets/images/after.jpg" alt="After garage cleanout" loading="lazy" />
+            <img src="assets/images/image 1.jpg" alt="Before and After junk removal" loading="lazy" />
             <span class="ba-label ba-label-after"><i class="fas fa-check"></i> AFTER</span>
           </div>
           <div class="ba-before">
-            <img src="assets/images/before.jpg" alt="Before garage cleanout" loading="lazy" />
+            <img src="assets/images/image 1.jpg" alt="Before and After junk removal" loading="lazy" />
             <span class="ba-label ba-label-before"><i class="fas fa-times"></i> BEFORE</span>
           </div>
           <div class="ba-handle">
@@ -275,11 +275,11 @@ require_once __DIR__ . '/includes/header.php';
       <div class="ba-item">
         <div class="ba-slider" data-ba>
           <div class="ba-after">
-            <img src="assets/images/746130013_122107751661370404_878674799570659017_n.jpg" alt="After yard cleanup" loading="lazy" />
+            <img src="assets/images/image2.jpg" alt="Before and After yard cleanup" loading="lazy" />
             <span class="ba-label ba-label-after"><i class="fas fa-check"></i> AFTER</span>
           </div>
           <div class="ba-before">
-            <img src="assets/images/744663568_122107751673370404_1837427653010624636_n.jpg" alt="Before yard cleanup" loading="lazy" />
+            <img src="assets/images/image2.jpg" alt="Before and After yard cleanup" loading="lazy" />
             <span class="ba-label ba-label-before"><i class="fas fa-times"></i> BEFORE</span>
           </div>
           <div class="ba-handle">
@@ -370,7 +370,7 @@ require_once __DIR__ . '/includes/header.php';
       <!-- Tier 1 -->
       <div class="price-card" data-aos="fade-up" data-aos-delay="0">
         <div class="price-card-badge">Small Load</div>
-        <div class="price-card-icon">📦</div>
+        <div class="price-card-icon"><i class="fas fa-box"></i></div>
         <h3>MINIMUM LOAD</h3>
         <div class="price-amount"><sup>$</sup>89<small>*</small></div>
         <p class="price-desc">Perfect for a few items — old mattress, broken appliance, small furniture pieces.</p>
@@ -388,7 +388,7 @@ require_once __DIR__ . '/includes/header.php';
       <div class="price-card price-card-featured" data-aos="fade-up" data-aos-delay="100">
         <div class="price-card-ribbon">MOST POPULAR</div>
         <div class="price-card-badge">Half Load</div>
-        <div class="price-card-icon">🚛</div>
+        <div class="price-card-icon"><i class="fas fa-truck"></i></div>
         <h3>HALF TRUCK</h3>
         <div class="price-amount"><sup>$</sup>199<small>*</small></div>
         <p class="price-desc">Ideal for garage cleanouts, room clearances, or moderate junk piles.</p>
@@ -406,7 +406,7 @@ require_once __DIR__ . '/includes/header.php';
       <!-- Tier 3 -->
       <div class="price-card" data-aos="fade-up" data-aos-delay="200">
         <div class="price-card-badge">Full Load</div>
-        <div class="price-card-icon">🏗️</div>
+        <div class="price-card-icon"><i class="fas fa-truck-ramp-box"></i></div>
         <h3>FULL TRUCK</h3>
         <div class="price-amount"><sup>$</sup>349<small>*</small></div>
         <p class="price-desc">Big jobs — full estate cleanouts, construction debris, entire garage or shed.</p>
@@ -492,12 +492,8 @@ require_once __DIR__ . '/includes/header.php';
       <button class="carousel-btn carousel-next" id="revNext"><i class="fas fa-chevron-right"></i></button>
     </div>
 
-    <!-- Carousel dots -->
-    <div class="carousel-dots" id="revDots">
-      <?php foreach($TESTIMONIALS as $i => $_): ?>
-        <button class="dot <?= $i===0?'active':'' ?>" data-index="<?= $i ?>"></button>
-      <?php endforeach; ?>
-    </div>
+    <!-- Carousel dots (populated by JS to match actual slide positions) -->
+    <div class="carousel-dots" id="revDots"></div>
   </div>
 </section>
 
@@ -563,7 +559,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="why-img why-img-1" style="background-image:url('assets/images/what we do and why choose us.jpg')"></div>
         <div class="why-img why-img-2" style="background-image:url('assets/images/j and b staff image.jpg')"></div>
         <div class="why-badge-float">
-          <div class="wbf-number">5.0★</div>
+          <div class="wbf-number">5.0 <i class="fas fa-star"></i></div>
           <div class="wbf-text">Customer<br/>Rating</div>
         </div>
       </div>
@@ -611,7 +607,7 @@ require_once __DIR__ . '/includes/header.php';
 
     <!-- Right: Form — FIXED: added method, action, enctype -->
     <div class="quote-form-wrap" data-aos="fade-left">
-      <form id="quoteForm" class="quote-form" novalidate method="POST" action="quote.php" enctype="multipart/form-data">
+      <form id="quoteForm" class="quote-form" novalidate method="POST" action="api/quote.php" enctype="multipart/form-data">
         <div class="form-header">
           <h3>Request Your Free Quote</h3>
           <p>Fields marked * are required</p>
@@ -659,10 +655,10 @@ require_once __DIR__ . '/includes/header.php';
           <div class="volume-selector">
             <?php
             $volumes = [
-              ['val'=>'small',  'icon'=>'📦', 'label'=>'Small',   'desc'=>'Few items'],
-              ['val'=>'medium', 'icon'=>'🚛', 'label'=>'Medium',  'desc'=>'Half truck'],
-              ['val'=>'large',  'icon'=>'🏗️', 'label'=>'Large',   'desc'=>'Full truck'],
-              ['val'=>'xlarge', 'icon'=>'🏭', 'label'=>'X-Large',  'desc'=>'Multiple loads'],
+              ['val'=>'small',  'icon'=>'<i class="fas fa-box"></i>', 'label'=>'Small',   'desc'=>'Few items'],
+              ['val'=>'medium', 'icon'=>'<i class="fas fa-truck"></i>', 'label'=>'Medium',  'desc'=>'Half truck'],
+              ['val'=>'large',  'icon'=>'<i class="fas fa-truck-ramp-box"></i>', 'label'=>'Large',   'desc'=>'Full truck'],
+              ['val'=>'xlarge', 'icon'=>'<i class="fas fa-industry"></i>', 'label'=>'X-Large',  'desc'=>'Multiple loads'],
             ];
             foreach($volumes as $v): ?>
               <label class="volume-opt">
@@ -714,7 +710,7 @@ require_once __DIR__ . '/includes/header.php';
         <!-- Success message -->
         <div class="form-success" id="formSuccess" style="display:none">
           <div class="fs-icon"><i class="fas fa-check-circle"></i></div>
-          <h3>Quote Request Sent! 🎉</h3>
+          <h3>Quote Request Sent! <i class="fas fa-circle-check" style="color:var(--green)"></i></h3>
           <p>We'll get back to you within <strong>15 minutes</strong>. For fastest response, text us a pic at <a href="sms:<?= PHONE_RAW ?>"><?= PHONE ?></a>.</p>
         </div>
       </form>

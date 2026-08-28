@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────
+#  J&B Junk Busters — Apache Configuration
+# ─────────────────────────────────────────────
+
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Prevent directory listings
+Options -Indexes
+
+# Block direct access to /includes (site templates/config, not meant to be browsed)
+RewriteRule ^includes/ - [F,L]
+
+# Block direct access to the quote-request log
+RewriteRule ^logs/ - [F,L]
+
+# Never execute PHP inside the uploads folder (defense-in-depth against
+# a malicious file being uploaded and then run as a script)
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_URI} ^/uploads/.*\.ph(p[3457]?|t|tml)$ [NC]
+  RewriteRule ^ - [F,L]
+</IfModule>
+
+# Deny access to dotfiles (.htaccess, .env, .git, etc.)
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# GZIP compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json
+</IfModule>
+
+# Browser caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg  "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png  "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css               "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# Custom 404 (optional — create this file if you want a branded error page)
+# ErrorDocument 404 /404.php

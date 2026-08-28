@@ -16,12 +16,19 @@ if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 $allowed = ['image/jpeg','image/png','image/gif','image/webp'];
 $results = [];
 
+if (empty($_FILES['photos']['tmp_name'])) {
+    echo json_encode(['uploaded' => []]);
+    exit;
+}
+
 foreach ($_FILES['photos']['tmp_name'] as $i => $tmp) {
     if ($_FILES['photos']['error'][$i] !== UPLOAD_ERR_OK) continue;
     if ($_FILES['photos']['size'][$i]  > 10*1024*1024)    continue;
 
-    $mime = mime_content_type($tmp);
-    if (!in_array($mime, $allowed)) continue;
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime  = finfo_file($finfo, $tmp);
+    finfo_close($finfo);
+    if (!in_array($mime, $allowed, true)) continue;
 
     $ext  = ['image/jpeg'=>'jpg','image/png'=>'png','image/gif'=>'gif','image/webp'=>'webp'][$mime] ?? 'jpg';
     $name = 'tmp_' . uniqid() . '.' . $ext;

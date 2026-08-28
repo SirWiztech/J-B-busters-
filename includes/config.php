@@ -22,49 +22,49 @@ $SERVICE_AREAS = [
 // Services data
 $SERVICES = [
     [
-        'icon'  => '🏠',
+        'icon'  => '<i class="fas fa-house"></i>',
         'title' => 'Residential Junk Removal',
         'desc'  => 'From a single item to an entire house — we haul it all. Furniture, appliances, electronics, you name it.',
         'img'   => 'assets/images/743996045_122107751631370404_6105072072094681472_n.jpg'
     ],
     [
-        'icon'  => '🏢',
+        'icon'  => '<i class="fas fa-building"></i>',
         'title' => 'Commercial Cleanouts',
         'desc'  => 'Office clearances, retail space cleanouts, warehouse junk — we keep your business running smooth.',
         'img'   => 'assets/images/744273379_122107751733370404_1043641177230336075_n.jpg'
     ],
     [
-        'icon'  => '🏗️',
+        'icon'  => '<i class="fas fa-hard-hat"></i>',
         'title' => 'Construction Debris',
         'desc'  => 'Drywall, lumber, concrete, roofing — post-construction cleanup done fast and disposed of properly.',
         'img'   => 'assets/images/744316880_122107751799370404_3772456259846875103_n.jpg'
     ],
     [
-        'icon'  => '🏚️',
+        'icon'  => '<i class="fas fa-door-open"></i>',
         'title' => 'Estate & Eviction Cleanouts',
         'desc'  => 'Compassionate, thorough estate clearances and fast eviction cleanouts for property managers.',
         'img'   => 'assets/images/744393555_122107751745370404_2205775612204206352_n.jpg'
     ],
     [
-        'icon'  => '🚗',
+        'icon'  => '<i class="fas fa-warehouse"></i>',
         'title' => 'Garage & Shed Cleanouts',
         'desc'  => 'Reclaim your garage! We sort, haul, and even help organize what you want to keep.',
         'img'   => 'assets/images/744536201_122107751637370404_2416342080935895967_n.jpg'
     ],
     [
-        'icon'  => '🌿',
+        'icon'  => '<i class="fas fa-tree"></i>',
         'title' => 'Yard Waste & Brush Removal',
         'desc'  => 'Storm debris, fallen trees, brush piles, old fencing — we clear your yard completely.',
         'img'   => 'assets/images/744663568_122107751673370404_1837427653010624636_n.jpg'
     ],
     [
-        'icon'  => '🔩',
+        'icon'  => '<i class="fas fa-kitchen-set"></i>',
         'title' => 'Appliance Removal',
         'desc'  => 'Refrigerators, washers, dryers, stoves, hot tubs — heavy lifting is our specialty.',
         'img'   => 'assets/images/745305079_122107751703370404_2009808343106279365_n.jpg'
     ],
     [
-        'icon'  => '🪑',
+        'icon'  => '<i class="fas fa-chair"></i>',
         'title' => 'Furniture Hauling',
         'desc'  => 'Couches, mattresses, tables, beds — if it fits in our truck, it\'s gone today.',
         'img'   => 'assets/images/745314109_122107751757370404_1885520254129196585_n.jpg'
@@ -92,8 +92,8 @@ $GALLERY = [
     ['src'=>'assets/images/746130013_122107751661370404_878674799570659017_n.jpg',   'cat'=>'estate',       'title'=>'Estate Cleanout — Lavon, TX'],
     ['src'=>'assets/images/recent-work-photo.jpg',               'cat'=>'garage',       'title'=>'Recent Garage Cleanout — Rockwall, TX'],
     ['src'=>'assets/images/urbside and drive way pick up.jpg',   'cat'=>'garage',       'title'=>'Curbside & Driveway Pickup — Rockwall, TX'],
-    ['src'=>'assets/images/image 1.jpg',                         'cat'=>'furniture',    'title'=>'Furniture Removal — DFW Area'],
-    ['src'=>'assets/images/image2.jpg',                          'cat'=>'construction', 'title'=>'Construction Cleanup — DFW Area'],
+    ['src'=>'assets/images/after.jpg',                           'cat'=>'garage',       'title'=>'Garage Cleanout — After'],
+    ['src'=>'assets/images/before.jpg',                          'cat'=>'garage',       'title'=>'Garage Cleanout — Before'],
 ];
 
 // Testimonials
@@ -116,8 +116,8 @@ $STATS = [
 
 // Process steps
 $PROCESS = [
-    ['step'=>1, 'icon'=>'📲', 'title'=>'Send Us a Pic',     'desc'=>'Text or call us with a photo of your junk. We\'ll give you a fast, free, no-obligation quote — usually within minutes.'],
-    ['step'=>2, 'icon'=>'✅', 'title'=>'Get Your Quote',     'desc'=>'We\'ll send you an upfront, honest price. No hidden fees, no surprises. You approve it, we schedule it.'],
-    ['step'=>3, 'icon'=>'🚛', 'title'=>'We Haul It Away',   'desc'=>'Our crew shows up on time, does all the heavy lifting, and leaves your space cleaner than we found it.'],
-    ['step'=>4, 'icon'=>'♻️', 'title'=>'Eco-Friendly Disposal','desc'=>'We donate, recycle, and responsibly dispose of everything. Good for your space, good for the planet.'],
+    ['step'=>1, 'icon'=>'<i class="fas fa-mobile-screen-button"></i>', 'title'=>'Send Us a Pic',     'desc'=>'Text or call us with a photo of your junk. We\'ll give you a fast, free, no-obligation quote — usually within minutes.'],
+    ['step'=>2, 'icon'=>'<i class="fas fa-circle-check"></i>', 'title'=>'Get Your Quote',     'desc'=>'We\'ll send you an upfront, honest price. No hidden fees, no surprises. You approve it, we schedule it.'],
+    ['step'=>3, 'icon'=>'<i class="fas fa-truck"></i>', 'title'=>'We Haul It Away',   'desc'=>'Our crew shows up on time, does all the heavy lifting, and leaves your space cleaner than we found it.'],
+    ['step'=>4, 'icon'=>'<i class="fas fa-recycle"></i>', 'title'=>'Eco-Friendly Disposal','desc'=>'We donate, recycle, and responsibly dispose of everything. Good for your space, good for the planet.'],
 ];

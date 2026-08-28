@@ -276,16 +276,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const revNext = document.getElementById('revNext');
   const revDots = document.getElementById('revDots');
   let revIndex = 0;
+  let revLastMaxIndex = -1;
 
   function getRevCards() {
     return revCarousel ? Array.from(revCarousel.children) : [];
   }
 
+  // These thresholds must match the .review-card CSS breakpoints
+  // (max-width: 640px / 1024px) — otherwise the slider and the
+  // visible card width fall out of sync and drift/misalign.
   function getCardsPerView() {
     const w = window.innerWidth;
-    if (w < 600) return 1;
-    if (w < 900) return 2;
+    if (w <= 640) return 1;
+    if (w <= 1024) return 2;
     return 3;
+  }
+
+  function buildDots(maxIndex) {
+    if (!revDots) return;
+    revDots.innerHTML = '';
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.dataset.index = i;
+      dot.setAttribute('aria-label', `Go to review slide ${i + 1}`);
+      revDots.appendChild(dot);
+    }
   }
 
   function updateCarousel() {
@@ -295,30 +312,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxIndex = Math.max(0, cards.length - perView);
     revIndex = Math.min(revIndex, maxIndex);
 
-    const cardWidth = cards[0].offsetWidth + 20; // gap
+    // Rebuild dots only when the number of reachable slide positions
+    // actually changes (e.g. crossing a breakpoint on resize), so the
+    // dot count always matches real stops instead of one-per-review.
+    if (maxIndex !== revLastMaxIndex) {
+      buildDots(maxIndex);
+      revLastMaxIndex = maxIndex;
+    }
+
+    const gap = parseFloat(getComputedStyle(revCarousel).columnGap || getComputedStyle(revCarousel).gap) || 0;
+    const cardWidth = cards[0].offsetWidth + gap;
     revCarousel.style.transform = `translateX(-${revIndex * cardWidth}px)`;
 
-    // Update dots
     if (revDots) {
-      const dots = revDots.querySelectorAll('.dot');
-      dots.forEach((d, i) => d.classList.toggle('active', i === revIndex));
+      revDots.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === revIndex));
     }
+    if (revPrev) revPrev.disabled = revIndex === 0;
+    if (revNext) revNext.disabled = revIndex === maxIndex;
   }
 
   if (revPrev) revPrev.addEventListener('click', () => { revIndex = Math.max(0, revIndex - 1); updateCarousel(); });
   if (revNext) revNext.addEventListener('click', () => {
     const cards = getRevCards();
     const perView = getCardsPerView();
-    revIndex = Math.min(cards.length - perView, revIndex + 1);
+    revIndex = Math.min(Math.max(0, cards.length - perView), revIndex + 1);
     updateCarousel();
   });
 
+  // Event delegation, since dots are rebuilt dynamically and static
+  // per-dot listeners would be lost every time buildDots() runs.
   if (revDots) {
-    revDots.querySelectorAll('.dot').forEach(dot => {
-      dot.addEventListener('click', () => {
-        revIndex = parseInt(dot.dataset.index) || 0;
-        updateCarousel();
-      });
+    revDots.addEventListener('click', e => {
+      const dot = e.target.closest('.dot');
+      if (!dot) return;
+      revIndex = parseInt(dot.dataset.index) || 0;
+      updateCarousel();
     });
   }
 

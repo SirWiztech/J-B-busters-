@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <!-- Favicon (inline SVG shield) -->
-  <link rel="icon" type="image/jpeg" href="assets/images/footer-logo.png" />
+  <link rel="icon" type="image/png" href="assets/images/footer-logo.png" />
 </head>
 <body>
 
@@ -91,14 +91,14 @@
 
     <!-- Desktop Nav -->
     <ul class="nav-links" id="navLinks">
-      <li><a href="#hero"      class="nav-link active">Home</a></li>
-      <li><a href="#services"  class="nav-link">Services</a></li>
-      <li><a href="#process"   class="nav-link">How It Works</a></li>
-      <li><a href="#gallery"   class="nav-link">Our Work</a></li>
-      <li><a href="#pricing"   class="nav-link">Pricing</a></li>
-      <li><a href="#reviews"   class="nav-link">Reviews</a></li>
-      <li><a href="#areas"     class="nav-link">Areas</a></li>
-      <li><a href="#contact"   class="nav-link">Contact</a></li>
+      <li><a href="#hero"      class="nav-link active"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="#services"  class="nav-link"><i class="fas fa-cog"></i> Services</a></li>
+      <li><a href="#process"   class="nav-link"><i class="fas fa-route"></i> How It Works</a></li>
+      <li><a href="#gallery"   class="nav-link"><i class="fas fa-camera"></i> Our Work</a></li>
+      <li><a href="#pricing"   class="nav-link"><i class="fas fa-tag"></i> Pricing</a></li>
+      <li><a href="#reviews"   class="nav-link"><i class="fas fa-star"></i> Reviews</a></li>
+      <li><a href="#areas"     class="nav-link"><i class="fas fa-map-marked-alt"></i> Areas</a></li>
+      <li><a href="#contact"   class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
 
     <!-- CTA Button -->
@@ -119,17 +119,17 @@
   <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
   <div class="mobile-menu-content">
     <div class="mobile-logo">
-      <img src="assets/images/j&b logo.jpg" alt="J&B Junk Busters Logo" class="mobile-logo-img" />
+      <img src="assets/images/j&b logo.png" alt="J&B Junk Busters Logo" class="mobile-logo-img" />
     </div>
     <ul>
-      <li><a href="#hero"     class="mobile-link">🏠 Home</a></li>
-      <li><a href="#services" class="mobile-link">⚙️ Services</a></li>
-      <li><a href="#process"  class="mobile-link">🔄 How It Works</a></li>
-      <li><a href="#gallery"  class="mobile-link">📸 Our Work</a></li>
-      <li><a href="#pricing"  class="mobile-link">💲 Pricing</a></li>
-      <li><a href="#reviews"  class="mobile-link">⭐ Reviews</a></li>
-      <li><a href="#areas"    class="mobile-link">📍 Service Areas</a></li>
-      <li><a href="#contact"  class="mobile-link">✉️ Contact</a></li>
+      <li><a href="#hero"     class="mobile-link"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="#services" class="mobile-link"><i class="fas fa-cog"></i> Services</a></li>
+      <li><a href="#process"  class="mobile-link"><i class="fas fa-route"></i> How It Works</a></li>
+      <li><a href="#gallery"  class="mobile-link"><i class="fas fa-camera"></i> Our Work</a></li>
+      <li><a href="#pricing"  class="mobile-link"><i class="fas fa-tag"></i> Pricing</a></li>
+      <li><a href="#reviews"  class="mobile-link"><i class="fas fa-star"></i> Reviews</a></li>
+      <li><a href="#areas"    class="mobile-link"><i class="fas fa-map-marked-alt"></i> Service Areas</a></li>
+      <li><a href="#contact"  class="mobile-link"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
     <div class="mobile-ctas">
       <a href="tel:<?= PHONE_RAW ?>" class="btn btn-red btn-block"><i class="fas fa-phone-alt"></i> Call <?= PHONE ?></a>
