@@ -466,9 +466,10 @@ require_once __DIR__ . '/includes/header.php';
       </div>
     </div>
 
-    <div class="reviews-carousel-wrap">
+    <div class="reviews-carousel-container">
       <button class="carousel-btn carousel-prev" id="revPrev"><i class="fas fa-chevron-left"></i></button>
-      <div class="reviews-carousel" id="reviewsCarousel">
+      <div class="reviews-carousel-wrap">
+        <div class="reviews-carousel" id="reviewsCarousel">
         <?php foreach($TESTIMONIALS as $i => $rev): ?>
           <div class="review-card" data-aos="fade-up" data-aos-delay="<?= ($i%3)*100 ?>">
             <div class="review-card-top">
@@ -488,6 +489,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
           </div>
         <?php endforeach; ?>
+        </div>
       </div>
       <button class="carousel-btn carousel-next" id="revNext"><i class="fas fa-chevron-right"></i></button>
     </div>
